@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{asset('backend/images/logoo')}}">
+    <link rel="icon" href="{{asset('backend/images/logoo.png')}}">
 
-    <title>Learning Management System - Dashboard</title>
+    <title> Requirements Management System </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
