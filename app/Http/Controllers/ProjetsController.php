@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class ProjetsController extends Controller
 {
     public function index() {
+        // dd(auth()->id());
         $projets = Projet::get();
         return view('user.index' , compact('projets'));
-    
+
     }
     public function nouveauProjet(){
         $projets = Projet::get();
