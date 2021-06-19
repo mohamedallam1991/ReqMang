@@ -58,5 +58,3 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/update', [ProfileController::class, 'PasswordUpdate'])->name('password.update');
     });
 });
-
-
