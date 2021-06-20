@@ -39,9 +39,9 @@ Route::prefix('user')->group(function(){
     Route::post('/update/{id}', [UserController::class, 'UserUpdate'])->name('users.update');
     Route::get('/delete/{id}', [UserController::class, 'UserDelete'])->name('users.delete');
     //Route Projet
-    Route::get('/projet',  [ProjetsController::class, 'index'])->name('index');
-    Route::get('/projet/new', [ProjetsController::class, 'nouveauProjet'])->name('nouveauProjet');
-    Route::post('/projet/new', [ProjetsController::class, 'createProjet'])->name('createProjet');
+    Route::get('/project',  [ProjetsController::class, 'index'])->name('index');
+    Route::get('/project/new', [ProjetsController::class, 'nouveauProjet'])->name('nouveauProjet');
+    Route::post('/project/new', [ProjetsController::class, 'createProjet'])->name('createProjet');
 });
 
 //Exigences Route

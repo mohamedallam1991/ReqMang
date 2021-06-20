@@ -60,6 +60,8 @@ class User extends Authenticatable
     ];
     public function projets(){
         return $this->hasMany(Projet::class);
+        // this return means that the code stops working
+        // and the exigence relationship wont work
         return $this->hasMany(Exigence::class);
     }
     public function exigences(){

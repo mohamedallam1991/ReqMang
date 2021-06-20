@@ -48,6 +48,20 @@ class UserFactory extends Factory
     }
 
     /**
+     * Indicate that the model's user type should be admin.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function admin()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'userType' => 'admin',
+            ];
+        });
+    }
+
+    /**
      * Indicate that the user should have a personal team.
      *
      * @return $this
