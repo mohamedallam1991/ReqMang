@@ -21,7 +21,7 @@ class ProjetsController extends Controller
     public function createProjet(Request $request){
         $projet = new Projet();
         $projet->title = $request['title'];
-        // $projet->description = $request['description'];
+        $projet->description = $request['description'];
         $projet->user_id = Auth::id();
         $projet->save();
 

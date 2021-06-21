@@ -28,14 +28,14 @@
                                                 <div class="form-group">
                                                     <h5>Titre de projet <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="title" class="form-control" >
+                                                        <input required type="text" name="title" class="form-control" >
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <h5>Description <span class="text-danger">*</span></h5>
-                                                    <textarea name="content" class="form-control" rows="10">
+                                                    <textarea required name="description" class="form-control" rows="10">
 
                                                     </textarea>
                                                 </div>

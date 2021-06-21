@@ -24,7 +24,7 @@ class ProjectControllerTest extends TestCase
             ->actingAs($user)
             ->post('/user/project/new', [
                 'title' => 'projectation',
-                // 'description' => 'yeah',
+                'description' => 'yeah',
         ]);
 
 
@@ -32,7 +32,7 @@ class ProjectControllerTest extends TestCase
         // $this->assertEquals($user->projets()->first()->get()->title, 'projectation' );
         // $this->assertEquals(Projet::where('user_id', $user->id)->first()->title, 'projectation');
         $this->assertEquals($user->projets()->first()->title, 'projectation');
-        // $this->assertEquals($user->projets()->first()->description, 'yeah');
+        $this->assertEquals($user->projets()->first()->description, 'yeah');
         $response->assertStatus(302);
         $response->assertRedirect('/user/project/new');
         $this->assertEquals(1, Projet::count());
@@ -63,7 +63,8 @@ class ProjectControllerTest extends TestCase
         // each has 2 projects
 
         // user A can only see projects that belong to him
-        $this->actingAs($userA)->get('/project');
+        $response = $this->actingAs($userA)->get('/project');
+        // $response->assertSee();
         $this->assertTrue(true);
     }
 
@@ -71,7 +72,7 @@ class ProjectControllerTest extends TestCase
     public function project_migration_test()
     {
         $this->assertTrue(
-          Schema::hasColumns('projets', [
+          Schema::hasColumns('projects', [
               'title',
               'description'
         ]));

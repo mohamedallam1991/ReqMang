@@ -13,12 +13,12 @@ class CreateProjetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projets', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->timestamps();
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->string('description');
         });
     }
 
