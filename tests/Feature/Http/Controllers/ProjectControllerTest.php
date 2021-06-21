@@ -6,9 +6,10 @@ use Faker\Factory;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Projet;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\DB;
 
 class ProjectControllerTest extends TestCase
 {
@@ -69,6 +70,10 @@ class ProjectControllerTest extends TestCase
     /** @test */
     public function project_migration_test()
     {
-        // DB::
+        $this->assertTrue(
+          Schema::hasColumns('projets', [
+              'title',
+              'description'
+        ]));
     }
 }
