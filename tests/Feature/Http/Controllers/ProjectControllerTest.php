@@ -7,6 +7,7 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Projet;
 use Illuminate\Support\Facades\DB;
+use Database\Factories\ProjectFactory;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -61,10 +62,14 @@ class ProjectControllerTest extends TestCase
         $userA = User::factory()->create();
         $userB = User::factory()->create();
         // each has 2 projects
+        $projectA1 = Projet::factory()->create(['user_id' => $userA->id]);
+        $projectA2 = Projet::factory()->create(['user_id' => $userA->id]);
+        $projectB1 = Projet::factory()->create(['user_id' => $userB->id]);
+        $projectB2 = Projet::factory()->create(['user_id' => $userB->id]);
 
         // user A can only see projects that belong to him
         $response = $this->actingAs($userA)->get('/project');
-        // $response->assertSee();
+        $response->assertSee($projectA1->title);
         $this->assertTrue(true);
     }
 
