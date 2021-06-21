@@ -8,16 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjetsController extends Controller
 {
-    public function index() {
-        // dd(auth()->id());
-        $projets = Projet::get();
-        return view('user.index' , compact('projets'));
-
+    public function index()
+    {
+        $projets = auth()->user()->projets()->get();
+        return $projets;
+        // there is a need to fix the view to match the projects in a list
+        // return view('user.index' , compact('projets'));
     }
+
     public function nouveauProjet(){
         $projets = Projet::get();
         return view('projets.projet' , compact('projets'));
     }
+
     public function createProjet(Request $request){
         $projet = new Projet();
         $projet->title = $request['title'];

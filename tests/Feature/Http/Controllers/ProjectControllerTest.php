@@ -68,9 +68,12 @@ class ProjectControllerTest extends TestCase
         $projectB2 = Projet::factory()->create(['user_id' => $userB->id]);
 
         // user A can only see projects that belong to him
-        $response = $this->actingAs($userA)->get('/project');
+        $response = $this->actingAs($userA)->get('user/project/');
+        $response->assertStatus(200);
         $response->assertSee($projectA1->title);
-        $this->assertTrue(true);
+        $response->assertSee($projectA2->title);
+        $response->assertDontSee($projectB1->title);
+        $response->assertDontSee($projectB2->title);
     }
 
     /** @test */
